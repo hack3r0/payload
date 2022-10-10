@@ -30,7 +30,6 @@ read -p "select number : " try
 if [[ $try -eq "1" ]]; then
 echo -e "Waiting....."
 sleep 1
-#!/bin/bash
 clear
 function android() {
   clear

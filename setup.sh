@@ -21,7 +21,6 @@ echo -e "\e[1;34m[*] \e[32minstall packages....\e[0m";
 apt update && apt upgrade -y
 pkg install ruby python python2 -y
 pkg install toilet -y
-pkg install openjdk-17 -y
 pip3 install gem
 gem install lolcat
 pkg install wget curl -y

@@ -13,6 +13,8 @@ git clone https://github.com/hack3r0/payload
 
 cd payload
 
+bash setup.sh
+
 bash payload.sh
 
 ```
